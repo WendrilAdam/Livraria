@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Livraria.WebApp.Models
+namespace Livraria.WebApp
 {
-    public class Livro
+    public partial class Livros
     {
         public int Id { get; set; }
-        public string Título { get; set; }
+        public string Titulo { get; set; }
         public string Autor { get; set; }
         public string Editora { get; set; }
     }
