@@ -1,8 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Livraria.WebApp.Models;
 
-namespace Livraria.WebApp
+namespace Livraria.WebApp.DatabaseContext
 {
     public partial class LivrariaContext : DbContext
     {
@@ -22,7 +23,7 @@ namespace Livraria.WebApp
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=CASA-PC\\SQLEXPRESS,1433;Initial Catalog=Livraria;User ID=sa;Password=10081997w;");
             }
         }
@@ -31,7 +32,6 @@ namespace Livraria.WebApp
         {
             modelBuilder.Entity<Clientes>(entity =>
             {
-                entity.HasNoKey();
 
                 entity.ToTable("CLIENTES");
 
@@ -44,10 +44,6 @@ namespace Livraria.WebApp
                     .HasColumnName("DTNASC")
                     .HasColumnType("datetime");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
-
                 entity.Property(e => e.Nome)
                     .IsRequired()
                     .HasColumnName("NOME")
@@ -56,7 +52,6 @@ namespace Livraria.WebApp
 
             modelBuilder.Entity<Livros>(entity =>
             {
-                entity.HasNoKey();
 
                 entity.ToTable("LIVROS");
 
@@ -69,10 +64,6 @@ namespace Livraria.WebApp
                     .IsRequired()
                     .HasColumnName("EDITORA")
                     .HasMaxLength(50);
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Titulo)
                     .IsRequired()
