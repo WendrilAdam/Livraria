@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Livraria.WebApp
+namespace Livraria.WebApp.Models
 {
     public partial class Clientes
     {
